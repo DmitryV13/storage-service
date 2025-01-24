@@ -1,0 +1,27 @@
+      <h3>Response</h3>
+      <p>{response}</p>
+
+      {token && (
+        <button onClick={handleFetchProfile}>Profile</button>
+      )}
+
+      {profile && (
+        <div>
+          <h3>Profile</h3>
+          <pre>{JSON.stringify(profile, null, 2)}</pre> {/* Отображаем данные профиля */}
+        </div>
+      )}
+
+       //const handleFetchProfile = async () => {
+  //  try {
+  //    const profileRes = await axios.get(SERVER_URL + "/api/v1/profile", {
+  //      headers: {
+  //        Authorization: `Bearer ${token}` // Добавляем токен в заголовок
+  //      },
+  //      withCredentials: true
+  //    });
+  //    setProfile(profileRes.data); // Сохраняем данные профиля
+  //  } catch (error) {
+  //    setResponse(`Error fetching profile: ${error.response?.data?.message || error.message}`);
+  //  }
+  //};
