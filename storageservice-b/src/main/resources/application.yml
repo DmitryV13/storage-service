@@ -50,11 +50,13 @@
 server:
   port: 8081
 spring:
+  liquibase:
+    enabled: true
   application:
     name: storageservice
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
