@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-storagefiles-table
+      author: Dmitry
+      changes:
+        - createTable:
+            tableName: storage_file
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: size
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: mime_type
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: path
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: creation_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: storage_file
+            baseColumnNames: created_by
+            referencedTableName: _user
+            referencedColumnNames: login
+            constraintName: fk_user_login

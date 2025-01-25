@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/drop-alltables.yaml
+  - include:
+      file: db/changelog/changeset/create-users-table.yaml
+  - include:
+      file: db/changelog/changeset/create-authorities-table.yaml
+  - include:
+      file: db/changelog/changeset/create-users-authorities-table.yaml
+  - include:
+      file: db/changelog/changeset/create-storagefiles-table.yaml
+  - include:
+      file: db/changelog/changeset/create-userreservations-table.yaml
+  - include:
+      file: db/changelog/changeset/insert-test-authority.yaml

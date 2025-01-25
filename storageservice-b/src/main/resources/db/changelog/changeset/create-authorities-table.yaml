@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-authorities-table
+      author: Dmitry
+      changes:
+        - createTable:
+            tableName: authority
+            columns:
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false

@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: drop-alltables
+      author: Dmitry
+      changes:
+        - preConditions:
+            - tableExists:
+                tableName: storage_file
+              onFail: CONTINUE
+        - dropTable:
+            tableName: storage_file
+        - preConditions:
+            - tableExists:
+                tableName: user_reservation
+              onFail: CONTINUE
+        - dropTable:
+            tableName: user_reservation
+        - preConditions:
+            - tableExists:
+                tableName: user_authority
+              onFail: CONTINUE
+        - dropTable:
+            tableName: user_authority
+        - preConditions:
+            - tableExists:
+                tableName: _user
+              onFail: CONTINUE
+        - dropTable:
+            tableName: _user
+        - preConditions:
+            - tableExists:
+                tableName: authority
+              onFail: CONTINUE
+        - dropTable:
+            tableName: authority
