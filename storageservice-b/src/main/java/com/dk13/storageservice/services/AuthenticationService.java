@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -76,12 +77,14 @@ public class AuthenticationService {
     }
     
     public AuthenticationResponse authenticate(AuthenticationRequest request){
+        var a1 = SecurityContextHolder.getContext().getAuthentication();
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getLogin(),
                         request.getPassword()
                 )
         );
+        var a2 = SecurityContextHolder.getContext().getAuthentication();
         var user = userService.getUserByLogin(request.getLogin());
         
         if(!user.getActivated()){

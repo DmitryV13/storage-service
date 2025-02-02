@@ -48,7 +48,6 @@ public class ApplicationConfig {
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 User user = userRepository.findFirstByLogin(username)
                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-                //log.info("authorities  : {} ", user.getAuthoritiess());
                 return new SecureUserDetails(user);
             }
         };

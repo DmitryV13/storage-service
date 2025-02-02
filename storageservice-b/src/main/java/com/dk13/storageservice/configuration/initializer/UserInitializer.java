@@ -1,7 +1,6 @@
 package com.dk13.storageservice.configuration.initializer;
 
 import com.dk13.storageservice.entities.Authority;
-import com.dk13.storageservice.entities.Role;
 import com.dk13.storageservice.entities.User;
 import com.dk13.storageservice.repositories.AuthorityRepository;
 import com.dk13.storageservice.services.AuthenticationService;
