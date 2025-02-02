@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-userreservation-table
+      author: Dmitry
+      changes:
+        - createTable:
+            tableName: user_reservation
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: total_size
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: used_size
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: activated
+                  type: BOOLEAN
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_by
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: user_reservation
+            baseColumnNames: user_id
+            referencedTableName: _user
+            referencedColumnNames: id
+            constraintName: fk_user_reservation

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_test_authority
+      author: Dmitry
+      changes:
+        - insert:
+            tableName: authority
+            columns:
+              - column:
+                  name: name
+                  value: TESTER
